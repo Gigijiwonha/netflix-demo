@@ -1,0 +1,38 @@
+.nav-section{
+    background-color: black;
+    margin-top: 10px;
+}
+
+.nav-logo{
+    height: 40px;
+}
+
+.navbar .nav-linkbtn{
+    color: white;
+}
+
+.navbar .nav-linkbtn:hover {
+    color: red;
+}
+
+.nav-searchSection {
+    display: flex;
+}
+
+form .nav-searchBar {
+    background-color: rgb(51, 51, 51);
+    border: 1px solid rgb(93, 93, 93);
+    margin: 0 5px;
+}
+
+form .nav-searchBar::placeholder {
+    color: white !important;
+}
+
+form .nav-searchBar:focus {
+    border: 1px solid red;
+}
+
+form .nav-searchBar::placeholder:focus{
+    color: black !important;
+}
