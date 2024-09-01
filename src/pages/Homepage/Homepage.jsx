@@ -1,10 +1,11 @@
 import React from 'react'
 import './Homepage.style.css';
+import Banner from './components/Banner';
 
 function Homepage() {
   return (
     <div>
-      Homepage
+      <Banner/>
     </div>
   )
 }
