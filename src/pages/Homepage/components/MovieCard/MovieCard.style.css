@@ -1,0 +1,48 @@
+.movieCard-background{
+    width: 250px;
+    height: 450px;
+    background-position: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+
+.movieCard-info{
+    width: 100%;
+    height: 100%;
+    background: rgba(43, 41, 41, 0.9);
+    opacity: 0;
+    transition: all 1s;
+    color: white;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.movieCard-info:hover {
+    opacity: 1;
+}
+
+.movieCard-background:hover{
+    transform: scale(1.2) translateZ(10px);
+    z-index: 3;
+}
+
+.movieCard-info h1{
+    font-size: 30px;
+}
+
+.movieCard-info-badge{
+    display: flex;
+}
+
+.movieCard-infoDetail {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
