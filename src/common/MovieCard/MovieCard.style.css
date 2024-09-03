@@ -41,12 +41,36 @@
 
 .movieCard-info-badge{
     display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
 }
 
 .movieCard-infoDetail {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
+}
+
+.movieCard-infoDetail-adult.adult {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(216, 0, 0);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+}
+
+.movieCard-infoDetail-adult.all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
 }
 
 @media (max-width: 768px){
@@ -76,6 +100,18 @@
 
     .movieCard-infoDetail {
         font-size: 10px;
+    }
+
+    .movieCard-infoDetail-adult.adult{
+        width: 15px;
+        height: 15px;
+        font-size: 7px;
+    }
+
+    .movieCard-infoDetail-adult.all{
+        width: 15px;
+        height: 15px;
+        font-size: 7px;
     }
     
 }

@@ -1,10 +1,10 @@
 .movie-slider-container h3::before {
     content: '';
     display: inline-block;
-    width: 10px; /* Adjust size as needed */
-    height: 25px; /* Adjust size as needed */
-    background-color: red; /* Red square color */
-    margin-right: 8px; /* Space between square and title */
-    vertical-align: middle; /* Align the square with the text */
-    border-radius: 2px; /* Optional: to slightly round the corners */
+    width: 10px; 
+    height: 25px; 
+    background-color: red; 
+    margin-right: 8px; 
+    vertical-align: middle;
+    border-radius: 2px; 
 }
