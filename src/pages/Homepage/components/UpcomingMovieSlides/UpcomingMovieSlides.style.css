@@ -1,0 +1,12 @@
+.upcoming-movie-container{
+    margin: 50px;
+}
+
+.upcoming-movie-container h3 {
+    background-color: transparent;
+}
+
+.carousel-container{
+    overflow: hidden;
+    height: 450px;
+}

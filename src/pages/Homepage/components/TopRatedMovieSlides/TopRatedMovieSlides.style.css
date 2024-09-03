@@ -1,0 +1,12 @@
+.topRated-movie-container{
+    margin: 50px;
+}
+
+.topRated-movie-container h3 {
+    background-color: transparent;
+}
+
+.carousel-container{
+    overflow: hidden;
+    height: 450px;
+}
