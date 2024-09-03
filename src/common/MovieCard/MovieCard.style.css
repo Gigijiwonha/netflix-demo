@@ -46,3 +46,32 @@
     display: flex;
     flex-direction: column;
 }
+
+@media (max-width: 768px){
+    .movieCard-background{
+        width: 160px;
+        height: 250px;
+    }
+
+    .movieCard-info{
+        padding: 13px;
+    }
+
+    .movieCard-background:hover{
+        transform: scale(1.1) translateZ(5px);
+        z-index: 3;
+    }
+
+    .movieCard-info h1{
+        font-size: 20px;
+    }
+
+    .movieCard-info-badge{
+        font-size: 10px;
+    }
+
+    .movieCard-infoDetail {
+        font-size: 10px;
+    }
+    
+}

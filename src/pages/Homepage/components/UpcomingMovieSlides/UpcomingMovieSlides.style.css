@@ -10,3 +10,9 @@
     overflow: hidden;
     height: 450px;
 }
+
+@media (max-width: 768px) {
+    .carousel-container{
+        height: 250px;
+    }
+}
