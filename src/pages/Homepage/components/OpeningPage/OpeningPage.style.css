@@ -1,0 +1,35 @@
+.opening-page{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000; 
+    transition: opacity 1s ease-out;
+}
+
+.opening-logo{
+    width: 300px;
+    transition: transform .8s ease-out;
+}
+
+.fade-out {
+    opacity: 0;
+    z-index: 0; 
+}
+
+.opening-page.fade-out .opening-logo {
+    transform: scale(0.6); 
+}
+
+@media (max-width: 768px){
+    .opening-logo{
+        width: 150px;
+    }
+}
