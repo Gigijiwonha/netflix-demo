@@ -14,14 +14,17 @@ function Banner() {
         <Alert variant='danger'>(error.message)</Alert>
     }
 
+    const randomIndex = Math.floor(Math.random() * data?.results.length);
+    const movie = data?.results[randomIndex];
+
   return (
     <div className='banner-background' style={{
-        backgroundImage : "url("+`https://media.themoviedb.org/t/p/w533_and_h300_bestv2${data?.results[0].
+        backgroundImage : "url("+`https://media.themoviedb.org/t/p/w533_and_h300_bestv2${movie?.
             poster_path}`+")"
     }}>
         <div className='banner-info'>
-            <h1>{data?.results[0].title}</h1>
-            <p>{data?.results[0].overview}</p>
+            <h1>{movie?.title}</h1>
+            <p>{movie?.overview}</p>
         </div>
     </div>
   )
