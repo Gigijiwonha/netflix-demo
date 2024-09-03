@@ -8,6 +8,7 @@
     transition: 0.5s;
     border-radius: 30px;
     box-shadow: rgba(255, 0, 0, 0.44) 0px 6px 10px;
+    box-sizing: border-box; 
 }
 
 .movieCard-info{
@@ -24,6 +25,8 @@
     flex-direction: column;
     justify-content: center;
     border-radius: 30px;
+    box-sizing: border-box;
+    border: 2px solid red;
 }
 
 .movieCard-info:hover {
@@ -36,7 +39,18 @@
 }
 
 .movieCard-info h1{
-    font-size: 30px;
+    font-size: 33px;
+    font-weight: 800;
+}
+
+.movieCard-info h1::before {
+    content: ''; 
+    width: 5rem; 
+    height: .2rem; 
+    background-color: red;
+    position: absolute;
+    top: 4rem; 
+    left: 1.2rem; 
 }
 
 .movieCard-info-badge{
@@ -80,9 +94,8 @@
     }
 
     .movieCard-info{
-        width: 170px;
+        width: 175px;
         height: 250px;
-        padding: 13px;
     }
 
     .movieCard-background:hover{
@@ -92,6 +105,13 @@
 
     .movieCard-info h1{
         font-size: 20px;
+    }
+
+    .movieCard-info h1::before {
+        width: 4rem; 
+        height: .2rem; 
+        top: 2rem; 
+        left: 1rem; 
     }
 
     .movieCard-info-badge{
