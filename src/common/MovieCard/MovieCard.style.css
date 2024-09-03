@@ -1,16 +1,17 @@
 .movieCard-background{
     width: 250px;
-    height: 450px;
-    background-position: top;
+    height: 370px;
+    background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
     transition: 0.5s;
-    border-radius: 20px;
+    border-radius: 30px;
+    box-shadow: rgba(255, 0, 0, 0.44) 0px 6px 10px;
 }
 
 .movieCard-info{
-    width: 100%;
+    width: 250px;
     height: 100%;
     background: rgba(43, 41, 41, 0.9);
     opacity: 0;
@@ -22,6 +23,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 30px;
 }
 
 .movieCard-info:hover {
@@ -29,7 +31,7 @@
 }
 
 .movieCard-background:hover{
-    transform: scale(1.2) translateZ(10px);
+    transform: scale(1.05) translateZ(5px);
     z-index: 3;
 }
 
@@ -49,16 +51,18 @@
 
 @media (max-width: 768px){
     .movieCard-background{
-        width: 140px;
+        width: 175px;
         height: 250px;
     }
 
     .movieCard-info{
+        width: 170px;
+        height: 100%;
         padding: 13px;
     }
 
     .movieCard-background:hover{
-        transform: scale(1.1) translateZ(5px);
+        transform: scale(1.08) translateZ(4px);
         z-index: 3;
     }
 

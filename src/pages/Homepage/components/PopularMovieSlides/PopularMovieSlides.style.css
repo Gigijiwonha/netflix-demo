@@ -1,5 +1,5 @@
 .popular-movie-container{
-    margin: 50px;
+    margin: 0 50px;
 }
 
 .popular-movie-container h3 {
@@ -17,6 +17,6 @@
     }
 
     .carousel-container{
-        height: 250px;
+        height: 270px;
     }
 }
