@@ -12,6 +12,10 @@
 }
 
 @media (max-width: 768px) {
+    .popular-movie-container{
+        margin: 30px;
+    }
+
     .carousel-container{
         height: 250px;
     }
