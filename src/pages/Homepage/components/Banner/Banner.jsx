@@ -1,6 +1,7 @@
 import React from 'react'
 import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies'
 import Alert from 'react-bootstrap/Alert';
+import LoadingSpinner from '../../../../common/LoadingSpinner/LoadingSpinner';
 import './Banner.style.css';
 
 function Banner() {
@@ -8,7 +9,7 @@ function Banner() {
     const { data, isLoading, isError, error } = usePopularMoviesQuery();
     console.log("data>>>", data);
     if(isLoading){
-        <h1>Loading...</h1> // Displaying loading spinner later
+        return <LoadingSpinner/> // Displaying loading spinner later
     }
     if(isError){
         <Alert variant='danger'>(error.message)</Alert>

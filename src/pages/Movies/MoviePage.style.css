@@ -1,0 +1,99 @@
+.moviepage-section{
+    background-color: black;
+    padding: 40px;
+}
+
+.moviepage-genreList-title{
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+}
+
+.moviepage-genreList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px auto;
+    width: 75%;
+}
+
+.moviepage-genreList button{
+    background-color: rgb(130, 3, 3);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 3px 9px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.moviepage-genreList button:hover{
+    transform: scale(1.1);
+    background-color: white;
+    color: black;
+}
+
+.moviepage-moviesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.page-item {
+    margin: 0 5px;
+  }
+
+.moviepage-pagination .page-link {
+    color: red; 
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+.moviepage-pagination .page-link:hover {
+    background-color: #cc1b1b; 
+    color: white;
+  }
+  
+.moviepage-pagination .active .page-link {
+    background-color: red; 
+    color: white;
+  }
+  
+.moviepage-pagination .pagination .page-item.break {
+    display: none;
+  }
+
+@media (max-width: 768px) {
+    .moviepage-genreList-title{
+        font-size: 25px;
+    }
+
+    .moviepage-genreList{
+    gap: 3px;
+    margin: 20px auto;
+    width: 85%;
+    }
+
+    .moviepage-moviesContainer {
+        margin-top: 40px;
+    }
+
+  }

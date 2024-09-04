@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -10,7 +10,16 @@ import logo from '../assets/logo.png'
 import './AppLayout.style.css';
 
 function AppLayout() {
+
+    const [keyword, setKeyword] = useState();
     const navigate = useNavigate();
+
+    const searchByKeyword =(event)=>{
+        event.preventDefault();
+        navigate(`/movies?q=${keyword}`);
+        setKeyword(''); // Empty setKeyword 
+    }
+
     const goToMovies =()=> {
         navigate('/movies');
     }
@@ -18,6 +27,7 @@ function AppLayout() {
     const goToHome=()=> {
         navigate('/');
     }
+
   return (
     <div>
         <Navbar expand="lg" className="nav-section">
@@ -35,14 +45,15 @@ function AppLayout() {
                     <Nav.Link  className='nav-linkbtn' onClick={goToHome}>Home</Nav.Link>
                     <Nav.Link className='nav-linkbtn' onClick={goToMovies}>Movies</Nav.Link>
                     </Nav>
-                    <Form className="nav-searchSection">
+                    <Form className="nav-searchSection" onSubmit={searchByKeyword}>
                         <Form.Control
                             type="search"
                             placeholder="Search"
                             className="nav-searchBar"
                             aria-label="Search"
+                            value={keyword} onChange={(event)=> setKeyword(event.target.value)}
                         />
-                        <Button variant="outline-danger" className='nav-searchBtn'>Search</Button>
+                        <Button variant="outline-danger" className='nav-searchBtn' type='submit'>Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Container>
