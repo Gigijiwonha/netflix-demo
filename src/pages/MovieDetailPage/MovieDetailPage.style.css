@@ -1,0 +1,141 @@
+.movieDetail-container{
+    background-color: black;
+}
+
+.movieDetail-topContainer{
+    position: relative;
+}
+
+.moveieDetail-imgContainer{
+    position: relative;
+}
+
+.moveieDetail-imgContainer::before{
+    content: '';
+    background: linear-gradient(to right, black, transparent);
+    position: absolute;
+    left: 0;
+    height: 80vh;
+    width: 100%;
+}
+
+.movieDetail-img{
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+}
+
+.movieDetail-contentInfo{
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 500px;
+}
+
+.movieDetail-logo{
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+}
+
+.movieDetail-contentInfo h1{
+    font-size: 55px;
+    font-weight: 700;
+    color: white;
+}
+
+.movieDetail-contentInfo div{
+    color: white;
+}
+
+.movieDetail-contentInfo .movieDetail-info{
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(105, 105, 105);
+}
+
+.startBtn {
+    color:  rgb(172, 0, 0);
+}
+
+.movieDetail-genreBad {
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 17px;
+}
+
+.movieDetail-contentInfo .moveDetail-overviewTitle {
+    color: rgb(172, 0, 0);
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.moveDetail-Btns{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    margin-top: 15px;
+}
+
+.moveDetail-Btns button{
+    width: 245px;
+    height: 35px;
+    text-align: center;
+    background-color: rgb(172, 0, 0);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.moveDetail-Btns button:hover{
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.05);
+}
+
+.playbtn {
+    margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+
+    .moveieDetail-imgContainer::before{
+        height: 70vh;
+        width: 100%;
+    }
+    
+    .movieDetail-contentInfo{
+        width: 70%;
+    }
+
+    .movieDetail-contentInfo h1{
+        font-size: 40px;
+        font-weight: 600;
+    }
+
+
+    .movieDetail-contentInfo .movieDetail-info{
+        font-size: 15px;
+        font-weight: 500;
+
+    }   
+
+    .movieDetail-genreBad {
+        gap: 3px;
+        font-size: 15px;
+    }
+
+    .movieDetail-contentInfo .moveDetail-overviewTitle {
+        font-size: 20px;
+    }
+
+    .moveDetail-Btns button{
+        width: 49%;
+        height: 30px;
+    }
+}

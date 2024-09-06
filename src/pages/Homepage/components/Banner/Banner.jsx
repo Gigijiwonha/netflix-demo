@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies'
 import Alert from 'react-bootstrap/Alert';
 import LoadingSpinner from '../../../../common/LoadingSpinner/LoadingSpinner';
 import './Banner.style.css';
+import imageLogo from '../../../../assets/imageLogo.png';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faStar } from '@fortawesome/free-solid-svg-icons'
+import MovieTrailer from '../../../../common/MovieTrailer/MovieTrailer';
 
 function Banner() {
 
+    const [playvideo, setPlayVideo] = useState(false);
+
+    const playTrailer = () => {
+        setPlayVideo(true);
+    }
     const { data, isLoading, isError, error } = usePopularMoviesQuery();
     console.log("data>>>", data);
     if(isLoading){
-        return <LoadingSpinner/> // Displaying loading spinner later
+        return <LoadingSpinner/> 
     }
     if(isError){
         <Alert variant='danger'>(error.message)</Alert>
@@ -20,12 +29,20 @@ function Banner() {
 
   return (
     <div className='banner-background' style={{
-        backgroundImage : "url("+`https://media.themoviedb.org/t/p/w533_and_h300_bestv2${movie?.
+        backgroundImage : "url("+`https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${movie?.
             poster_path}`+")"
     }}>
+        {playvideo && <MovieTrailer movieId ={movie.id} setPlayVideo={setPlayVideo} playvideo={playvideo} />}
         <div className='banner-info'>
-            <h1>{movie?.title}</h1>
-            <p>{movie?.overview}</p>
+            <img src={imageLogo} alt='Logo' className='banner-logo' />
+            <h1 className='banner-title'>{movie?.title}</h1>
+            <div className='banner-contentsInfo'><FontAwesomeIcon icon={faStar} className='startBtn'/> {movie?.vote_average.toFixed(1)} ({movie?.vote_count}) | {movie?.runtime}m | {movie?.release_date?.split("-")[0]} | {movie?.
+original_language.toUpperCase()}</div>
+            <div className='banner-overview'>{movie?.overview}</div>
+            <div className='banner-Btns'>
+                <button> <FontAwesomeIcon icon={faPlay} className='banner-playbtn' />  Play </button>
+                <button onClick={playTrailer}><FontAwesomeIcon icon={faPlay} className='banner-playbtn' />  Trailer </button>
+            </div>
         </div>
     </div>
   )

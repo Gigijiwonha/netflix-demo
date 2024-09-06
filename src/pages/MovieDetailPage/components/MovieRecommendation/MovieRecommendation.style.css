@@ -1,0 +1,23 @@
+.movieRecommendation-container{
+    margin: 80px 50px;
+}
+
+.movieRecommendation-container h3 {
+    background-color: transparent;
+    color: white;
+}
+
+.carousel-container{
+    overflow: hidden;
+    height: 450px;
+}
+
+@media (max-width: 768px) {
+    .movieRecommendation-container{
+        margin: 30px;
+    }
+
+    .carousel-container{
+        height: 270px;
+    }
+}

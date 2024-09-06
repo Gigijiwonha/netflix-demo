@@ -1,0 +1,58 @@
+.reviewCard-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border: 2px solid rgb(157, 0, 0);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.reviewCard-container > *{
+    color: white;
+}
+
+.reviewCard-info {
+    display: flex;
+    justify-content: left;
+    align-items:baseline;
+}
+
+.reviewCard-info h2 {
+ font-size: 25px;
+}
+
+.reviewCard-info h3 {
+    font-size: 18px;
+    margin: 0px 10px;
+    color: rgb(136, 136, 136);
+}
+
+.reviewCard-content button{
+    border: none;
+    background-color: transparent;
+    color: rgb(157, 0, 0);
+    font-size: 20px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+.reviewCard-info h2 {
+    font-size: 20px;
+   }
+   
+   .reviewCard-info h3 {    
+        font-size: 15px;
+   }
+   
+   .reviewCard-content button{
+        border: none;
+        background-color: transparent;
+       color: rgb(157, 0, 0);
+       font-size: 15px;
+       margin: 3px;
+       cursor: pointer;
+   }
+}

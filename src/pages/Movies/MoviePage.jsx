@@ -20,6 +20,7 @@ function MoviePage() {
   const [query, setQuery] = useSearchParams();
   const [page, setPage] = useState(1);
   const [selectedMovies, setSelectedMovies] = useState([]);
+  const [sortByPopularity, setSortByPopularity] = useState([]);
   const keyword = query.get("q");
   const genre = query.get("g");
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ function MoviePage() {
 
   const {data:genreData} = useMovieGenreQuery(); 
   const {data:movieData, isLoading, isError, error} = useSearchMovieQuery(keyword, genre, page);
-  console.log("moviessssss",movieData);
+  console.log("popmoviessssss",movieData);
 
 
   useEffect(() => {
@@ -59,7 +60,13 @@ function MoviePage() {
     return setSelectedMovies(filteredMovieArray);
   }
 
-  
+  const sortedByPopularity = () =>{ 
+    const sortedMovies = 
+    movieData?.results.sort((a, b) => b.popularity - a.popularity)
+    console.log("pop>>>>>>>>>>",sortedMovies);
+    return setSortByPopularity(sortedMovies);
+  }
+
 
   return (
     <div className='moviepage-section'>
@@ -69,24 +76,38 @@ function MoviePage() {
         <button onClick={()=>showMoviesByGenre(genre.id)}>{genre.name}</button>
         )}
       </div>
+      <div className='moviePage-SortByPopularity'>
+        <button  onClick={sortedByPopularity}>Sort by Popularity</button>
+      </div>
       <div className='moviepage-moviesContainer'>
         {keyword && movieData?.results.length === 0 && (
-          <p>No results found for "{keyword}".</p>
+          <p className='moviepage-noResult'>No results found for "{keyword}".</p>
         )}
-        {!keyword && !genre && (
+        {/* {!keyword && !genre && !sortByPopularity &&(
           movieData?.results.map((movie, index) => (
             <MovieCard movie={movie} key={index} nextClassName="movieCard" />
           ))
-        )}
+        )} */}
         {keyword ? (
-          movieData?.results.map((movie, index) => (
-            <MovieCard movie={movie} key={index} nextClassName="movieCard" />
-          ))
-        ) : (
+          movieData?.results
+            .filter(movie => movie.title.toLowerCase().includes(keyword.toLowerCase()))
+            .map((movie, index) => (
+          <MovieCard movie={movie} key={index} nextClassName="movieCard" />
+            ))
+        ) : genre ? (
           selectedMovies.map((movie, index) => (
+            <MovieCard movie={movie} key={index} nextClassName="movieCard" />
+        ))
+        ) : sortByPopularity.length > 0 ? (
+          sortByPopularity.map((movie, index) => (
+            <MovieCard movie={movie} key={index} nextClassName="movieCard" />
+        ))
+        ) : (
+          movieData?.results.map((movie, index) => (
           <MovieCard movie={movie} key={index} nextClassName="movieCard" />
           ))
         )}
+
       </div>
       <div className='moviepage-pagination'>
         <ReactPaginate

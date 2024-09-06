@@ -1,6 +1,7 @@
 .moviepage-section{
     background-color: black;
     padding: 40px;
+    
 }
 
 .moviepage-genreList-title{
@@ -34,6 +35,27 @@
     transform: scale(1.1);
     background-color: white;
     color: black;
+}
+
+.moviePage-SortByPopularity{
+    display: flex;
+    justify-content: center;
+}
+
+.moviePage-SortByPopularity button{
+    background-color: rgb(255, 255, 255);
+    color: rgb(130, 3, 3);
+    border: none;
+    border-radius: 10px;
+    padding: 3px 9px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.moviePage-SortByPopularity button:hover{
+    background-color: rgb(130, 3, 3);
+    color: rgb(255, 255, 255);
 }
 
 .moviepage-moviesContainer {
@@ -81,6 +103,13 @@
     display: none;
   }
 
+  .moviepage-noResult {
+    color: white;
+    font-size: 30px;
+    margin: 100px;
+  }
+
+
 @media (max-width: 768px) {
     .moviepage-section{
         padding: 10px;
@@ -100,5 +129,10 @@
         margin-top: 40px;
         gap: 15px;
     }
+
+    .moviepage-noResult {
+        font-size: 18px;
+        margin: 50px;
+      }
 
   }
