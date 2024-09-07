@@ -8,19 +8,11 @@ import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
 import './MoviePage.style.css';
 
-
-// set filtered search - genre, popularity, year?
-// loading spinner
-// modify paginataion ui
-// modify movie title size on moviecard
-// design moviepage ui
-
 function MoviePage() {
 
   const [query, setQuery] = useSearchParams();
   const [page, setPage] = useState(1);
   const [selectedMovies, setSelectedMovies] = useState([]);
-  const [sortByPopularity, setSortByPopularity] = useState([]);
   const keyword = query.get("q");
   const genre = query.get("g");
   const navigate = useNavigate();
@@ -31,18 +23,20 @@ function MoviePage() {
 
   const {data:genreData} = useMovieGenreQuery(); 
   const {data:movieData, isLoading, isError, error} = useSearchMovieQuery(keyword, genre, page);
-  console.log("popmoviessssss",movieData);
-
 
   useEffect(() => {
-    if (!keyword && genre) {
-      const filteredMovieArray = movieData?.results?.filter((movie) =>
-        genre ? movie.genre_ids.includes(Number(genre)) : true
-      ) || [];
-      setSelectedMovies(filteredMovieArray);
+    if (movieData?.results) {
+      if (!keyword && genre) {
+        const filteredMovieArray = movieData.results.filter((movie) =>
+          genre ? movie.genre_ids.includes(Number(genre)) : true
+        ) || [];
+        setSelectedMovies(filteredMovieArray);
+      } else {
+        setSelectedMovies(movieData.results);
+      }
+      
     }
-  }, [movieData, genre, page, keyword]);
-
+  }, [movieData, genre, keyword]);
 
   if(isLoading){
     return <LoadingSpinner/>
@@ -60,12 +54,20 @@ function MoviePage() {
     return setSelectedMovies(filteredMovieArray);
   }
 
-  const sortedByPopularity = () =>{ 
-    const sortedMovies = 
-    movieData?.results.sort((a, b) => b.popularity - a.popularity)
-    console.log("pop>>>>>>>>>>",sortedMovies);
-    return setSortByPopularity(sortedMovies);
-  }
+  const sortedByPopularity = () => {
+    const sortedByPopMovies = [...selectedMovies].sort((a, b) => b.popularity - a.popularity);
+    setSelectedMovies(sortedByPopMovies); 
+  };
+  console.log("pppp", selectedMovies);
+
+  const sortedByRating = () => {
+    const sortedByRatingMovies = [...selectedMovies].sort((a, b) => b.vote_average
+    - a.vote_average
+    );
+    setSelectedMovies(sortedByRatingMovies); 
+  };
+
+
 
 
   return (
@@ -76,38 +78,29 @@ function MoviePage() {
         <button onClick={()=>showMoviesByGenre(genre.id)}>{genre.name}</button>
         )}
       </div>
-      <div className='moviePage-SortByPopularity'>
+      <div className='moviePage-SortedBtn'>
         <button  onClick={sortedByPopularity}>Sort by Popularity</button>
+        <button  onClick={sortedByRating}>Sort by Rating</button>
       </div>
       <div className='moviepage-moviesContainer'>
         {keyword && movieData?.results.length === 0 && (
           <p className='moviepage-noResult'>No results found for "{keyword}".</p>
         )}
-        {/* {!keyword && !genre && !sortByPopularity &&(
-          movieData?.results.map((movie, index) => (
-            <MovieCard movie={movie} key={index} nextClassName="movieCard" />
-          ))
-        )} */}
         {keyword ? (
           movieData?.results
             .filter(movie => movie.title.toLowerCase().includes(keyword.toLowerCase()))
             .map((movie, index) => (
-          <MovieCard movie={movie} key={index} nextClassName="movieCard" />
+              <MovieCard movie={movie} key={index} nextClassName="movieCard" />
             ))
-        ) : genre ? (
+        ) : selectedMovies.length > 0 ? (
           selectedMovies.map((movie, index) => (
             <MovieCard movie={movie} key={index} nextClassName="movieCard" />
-        ))
-        ) : sortByPopularity.length > 0 ? (
-          sortByPopularity.map((movie, index) => (
-            <MovieCard movie={movie} key={index} nextClassName="movieCard" />
-        ))
+          ))
         ) : (
           movieData?.results.map((movie, index) => (
-          <MovieCard movie={movie} key={index} nextClassName="movieCard" />
+            <MovieCard movie={movie} key={index} nextClassName="movieCard" />
           ))
         )}
-
       </div>
       <div className='moviepage-pagination'>
         <ReactPaginate

@@ -37,12 +37,12 @@
     color: black;
 }
 
-.moviePage-SortByPopularity{
+.moviePage-SortedBtn{
     display: flex;
     justify-content: center;
 }
 
-.moviePage-SortByPopularity button{
+.moviePage-SortedBtn button{
     background-color: rgb(255, 255, 255);
     color: rgb(130, 3, 3);
     border: none;
@@ -51,9 +51,10 @@
     font-size: 15px;
     cursor: pointer;
     transition: .3s ease-in-out;
+    margin: 0 10px;
 }
 
-.moviePage-SortByPopularity button:hover{
+.moviePage-SortedBtn button:hover{
     background-color: rgb(130, 3, 3);
     color: rgb(255, 255, 255);
 }
