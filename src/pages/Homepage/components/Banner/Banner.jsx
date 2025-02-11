@@ -7,9 +7,11 @@ import imageLogo from '../../../../assets/imageLogo.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faStar } from '@fortawesome/free-solid-svg-icons'
 import MovieTrailer from '../../../../common/MovieTrailer/MovieTrailer';
+import { useNavigate } from 'react-router-dom';
 
 function Banner() {
 
+    const navigate = useNavigate();
     const [playvideo, setPlayVideo] = useState(false);
 
     const playTrailer = () => {
@@ -27,6 +29,10 @@ function Banner() {
     const randomIndex = Math.floor(Math.random() * data?.results.length);
     const movie = data?.results[randomIndex];
 
+    const goToDetailPage =()=> {
+        navigate(`/movies/${movie.id}`);
+    }
+
   return (
     <div className='banner-background' style={{
         backgroundImage : "url("+`https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${movie?.
@@ -40,7 +46,7 @@ function Banner() {
 original_language.toUpperCase()}</div>
             <div className='banner-overview'>{movie?.overview}</div>
             <div className='banner-Btns'>
-                <button> <FontAwesomeIcon icon={faPlay} className='banner-playbtn' />  Play </button>
+                <button onClick={goToDetailPage}> <FontAwesomeIcon icon={faPlay} className='banner-playbtn' />  View Details </button>
                 <button onClick={playTrailer}><FontAwesomeIcon icon={faPlay} className='banner-playbtn' />  Trailer </button>
             </div>
         </div>
